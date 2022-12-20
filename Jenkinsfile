@@ -74,7 +74,8 @@ options {
         stage('cleaning') {
             steps {
                 sh '''
-                ls 
+                ls
+		ls
                 pwd
                 '''
             }
