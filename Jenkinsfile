@@ -67,6 +67,7 @@ options {
                 sh '''
                 ls 
                 pwd
+		ls
                 '''
             }
         }
