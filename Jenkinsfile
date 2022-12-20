@@ -156,7 +156,8 @@ options {
         stage('update helm charts-dev') {
             steps {
                 sh '''
-                ls 
+                ls
+		ls
                 pwd
                 '''
             }
