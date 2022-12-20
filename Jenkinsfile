@@ -157,7 +157,6 @@ options {
             steps {
                 sh '''
                 ls
-		ls
                 pwd
                 '''
             }
