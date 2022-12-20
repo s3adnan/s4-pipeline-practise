@@ -92,7 +92,8 @@ options {
         stage('build-dev') {
             steps {
                 sh '''
-                ls 
+                ls
+		ls
                 pwd
                 '''
             }
