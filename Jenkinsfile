@@ -23,35 +23,35 @@ options {
                                 ),
 
                           string(
-                            defaultValue: 's4user',
+                            defaultValue: 's3user',
                             name: 'User',
 			                description: 'Required to enter your name',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 's3adnan-001',
                             name: 'DB-Tag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 's3adnan-001',
                             name: 'UI-Tag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 's3adnan-001',
                             name: 'WEATHER-Tag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 's3adnan-001',
                             name: 'AUTH-Tag',
 			                description: 'Required to enter the image tag',
                             trim: true
