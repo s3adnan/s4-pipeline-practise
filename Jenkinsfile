@@ -100,8 +100,18 @@ echo $?
         stage('build-dev') {
             steps {
                 sh '''
-                ls 
-                pwd
+cd UI
+docker build -t devopseasylearning2021/s4-ui:$UITag .
+cd -
+cd DB
+docker build -t devopseasylearning2021/s4-db:$DBTag .
+cd -
+cd auth 
+docker build -t devopseasylearning2021/s4-auth:$AUTHTag .
+cd -
+cd weather 
+docker build -t devopseasylearning2021/s4-weather:$WEATHERTag .
+cd -
                 '''
             }
         }
