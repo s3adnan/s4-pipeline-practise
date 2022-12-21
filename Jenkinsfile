@@ -23,36 +23,36 @@ options {
                                 ),
 
                           string(
-                            defaultValue: 's3user',
+                            defaultValue: 's4user',
                             name: 'USER',
 			                description: 'Required to enter your name',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 's3adnan-001',
-                            name: 'DB-Tag',
+                            defaultValue: 'eric-001',
+                            name: 'DBTag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 's3adnan-001',
-                            name: 'UI-Tag',
+                            defaultValue: 'eric-001',
+                            name: 'UITag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 's3adnan-001',
-                            name: 'WEATHER-Tag',
+                            defaultValue: 'eric-001',
+                            name: 'WEATHERTag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 's3adnan-001',
-                            name: 'AUTH-Tag',
+                            defaultValue: 'eric-001',
+                            name: 'AUTHTag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
@@ -70,16 +70,16 @@ echo $?
                 '''
             }
         }
-
+	    
         stage('cleaning') {
             steps {
                 sh '''
-		ls
-                pwd
+                ls 
                 '''
             }
         }
-   	 stage('SonarQube analysis') {
+
+    stage('SonarQube analysis') {
             agent {
                 docker {
                   image 'sonarsource/sonar-scanner-cli:4.7.0'
@@ -89,13 +89,18 @@ echo $?
         CI = 'true'
         //  scannerHome = tool 'Sonar'
         scannerHome='/opt/sonar-scanner'
-                '''
+    }
+            steps{
+                withSonarQubeEnv('Sonar') {
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
+
         stage('build-dev') {
             steps {
                 sh '''
-                ls
+                ls 
                 pwd
                 '''
             }
@@ -159,7 +164,7 @@ echo $?
         stage('update helm charts-dev') {
             steps {
                 sh '''
-                ls
+                ls 
                 pwd
                 '''
             }
