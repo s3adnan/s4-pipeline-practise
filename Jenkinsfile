@@ -65,9 +65,23 @@ options {
         stage('permission') {
             steps {
                 sh '''
-                ls 
-                pwd
-                '''
+cat <<EOF > check.sh
+
+#! /bin/bash
+
+USER=${User}
+
+cat permission.txt | grep -i $USER
+
+if
+[[ $? -eq 0]]
+then
+echo "You do not have permission to run this job"
+else
+echo "You Don't have permission to run this job"
+exit 1
+fi
+EOF
             }
         }
 
