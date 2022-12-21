@@ -18,13 +18,13 @@ options {
                         parameters([    
                         
                         choice(
-                            choices: ['Dev', 'Sanbox','Prod'], 
+                            choices: ['DEV', 'SANBOX','PROD'], 
                             name: 'Environment'   
                                 ),
 
                           string(
                             defaultValue: 's3user',
-                            name: 'User',
+                            name: 'USER',
 			                description: 'Required to enter your name',
                             trim: true
                             ),
@@ -68,7 +68,6 @@ options {
 echo $USER		
 cat <<EOF > check.sh
 #! /bin/bash 
-USER=${User}
 cat permission.txt | grep -i $USER
 if 
 [[ $? -eq 0 ]]
