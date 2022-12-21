@@ -68,7 +68,7 @@ options {
 echo $USER		
 cat <<EOF > check.sh
 #! /bin/bash 
-cat permission.txt | grep -i $USER
+cat permission.txt | grep -O $USER
 if 
 [[ $? -eq 0 ]]
 then 
