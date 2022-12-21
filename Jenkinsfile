@@ -3,6 +3,10 @@ pipeline {
      label ("node1 || node2 ||  node3 || node4 ||  node5 ||  branch ||  main ||  jenkins-node || docker-agent ||  jenkins-docker2 ||  preproduction ||  production")
             }
 
+  environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+	}
+
 options {
     buildDiscarder(logRotator(numToKeepStr: '20'))
     disableConcurrentBuilds()
@@ -30,28 +34,28 @@ options {
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 'v1.0.0',
                             name: 'DBTag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 'v1.0.0',
                             name: 'UITag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 'v1.0.0',
                             name: 'WEATHERTag',
 			                description: 'Required to enter the image tag',
                             trim: true
                             ),
 
                           string(
-                            defaultValue: 'eric-001',
+                            defaultValue: 'v1.0.0',
                             name: 'AUTHTag',
 			                description: 'Required to enter the image tag',
                             trim: true
@@ -170,8 +174,7 @@ cd -
         stage('login') {
             steps {
                 sh '''
-                ls 
-                pwd
+echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u devopseasylearning2021 --password-stdin
                 '''
             }
         }
@@ -268,3 +271,5 @@ cd -
 
 	
 }
+
+
