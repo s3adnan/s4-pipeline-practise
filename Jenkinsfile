@@ -89,8 +89,9 @@ echo $?
         CI = 'true'
         //  scannerHome = tool 'Sonar'
         scannerHome='/opt/sonar-scanner'
-  	  }
-
+                '''
+            }
+        }
         stage('build-dev') {
             steps {
                 sh '''
